@@ -136,7 +136,7 @@ Cet aussi ici que vous devriez **créer vos controllers** et **vos templates htm
 Lisez bien la documentation de `ngRoute` et de `ngView`, les exemples sont parfait !
 Cet étape est certainement l'une des plus compliquées. C'est mieux de commencer par celle-ci mais encore une fois ce n'est pas obligatoire !
     
-### Step 2: Factoriser la liste des héros (directive native)
+#### Step 2: Factoriser la liste des héros (directive native)
 
 Cette liste est trop longue et le markup semble **repetitif** vous ne trouvez pas ?
 Trouvez un moyen de factoriser encore plus le markup.

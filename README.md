@@ -66,7 +66,7 @@ Je vous conseil d'ouvrir une fenêtre de console spéciale pour lancer le server
 
 L'objectif de ce TP sera de dynamiser un template HTML/CSS statique à l'aide d'AngularJS.
 
-Une vidéo explicative est disponible [ici]
+Une vidéo explicative est disponible dans le dossier `videos`.
 
 Le rendu attendu est un zip de l'ensemble du dossier `avengers`.
 

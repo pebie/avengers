@@ -41,7 +41,7 @@
                     if(hero !== undefined) {
                         defer.resolve(hero);
                     } else {
-                        defer.reject('Wanted Hero does not exists!');
+                        defer.reject('Expected Hero does not exists!');
                     }
 
                 }, function(err) {
@@ -68,6 +68,7 @@
 
             return result;
         }
+
     });
 
 }());

@@ -20,7 +20,11 @@
         }
 
         function heroBlockCtrl($scope, $location) {
-
+            
+            /**
+             * Go to hero detail page
+             * @param {int} id Hero's unique id
+             */
             $scope.showHero = function(id) {
                 $location.path('/hero/' + id);
             };

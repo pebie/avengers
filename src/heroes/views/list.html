@@ -6,16 +6,28 @@
         <span class="dropdown pull-right">
             <a href="" class="dropdown-toggle" data-toggle="dropdown">Filter <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="">By name</a></li>
-                <li><a href="">By age</a></li>
-                <li><a href="">By status</a></li>
+                <li
+                    ng-class="{disabled: query.order == 'name'}"
+                    ng-click="changeOrder('name')">
+                        <a href="">By name</a>
+                </li>
+                <li
+                    ng-class="{disabled: query.order == 'age'}"
+                    ng-click="changeOrder('age')">
+                        <a href="">By age</a>
+                </li>
+                <li
+                    ng-class="{disabled: query.order == 'status'}"
+                    ng-click="changeOrder('status')">
+                        <a href="">By status</a>
+                </li>
             </ul>
         </span>
     </div>
 
     <div class="panel-body">
 
-        <hero-block ng-repeat="hero in heroes" hero="hero"></hero-block>
+        <hero-block ng-repeat="hero in heroes | orderBy: query.order" hero="hero"></hero-block>
 
     </div>
 

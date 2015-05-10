@@ -1,74 +1,91 @@
 (function() {
     'use strict';
 
-    var app = angular.module('Avengulars');
+    angular
+        .module('Avengulars')
+        .factory('HeroFactory', HeroFactory);
 
-    app.factory('HeroFactory', function(urlConfig, $http, $q) {
+        function HeroFactory(urlConfig, $http, $q) {
 
-        return {
+            return {
 
-            getHeroes: _getHeroes,
-            getHero: _getHero
+                getHeroes: _getHeroes,
+                getHero: _getHero
 
-        };
+            };
 
-        /**
-         * Returns a list of all heroes
-         */
-        function _getHeroes() {
+            /**
+             * Returns a list of all heroes
+             */
+            function _getHeroes() {
 
-            var defer = $q.defer();
-            $http.get(urlConfig.HEROES)
-                .then(function(heroes) {
-                    defer.resolve(heroes.data);
-                }, function(err) {
-                    defer.reject(err);
-            });
+                if(localStorage.getItem('heroes') !== null) {
 
-            return defer.promise;
+                    return JSON.parse(localStorage.getItem('heroes'));
 
-        }
+                }
 
-        /**
-         * Returns one hero using ID
-         * @param {int} id heroes id
-         */
-        function _getHero(id) {
-            var defer = $q.defer();
-            $http.get(urlConfig.HEROES)
-                .then(function(heroes) {
-                    var hero = _loopHeroes(heroes.data, id);
-                    if(hero !== undefined) {
-                        defer.resolve(hero);
-                    } else {
-                        defer.reject('Expected Hero does not exists!');
-                    }
-
-                }, function(err) {
-                    defer.reject(err);
+                var defer = $q.defer();
+                $http.get(urlConfig.HEROES)
+                    .then(function(heroes) {
+                        localStorage.setItem('heroes', JSON.stringify(heroes.data));
+                        defer.resolve(heroes.data);
+                    }, function(err) {
+                        defer.reject(err);
                 });
 
-            return defer.promise;
-        }
+                return defer.promise;
 
-        /**
-         * Check if Hero exists.
-         * If it does, it returns Hero, if not, returns false.
-         * @param {obj} heroes JSON containing all heroes
-         * @param {int} id ID of wanted hero
-         */
-        function _loopHeroes(heroes, id) {
-            var result;
+            }
 
-            heroes.forEach(function(hero) {
-                if(hero.id === parseInt(id)) {
-                    result = hero;
+            /**
+             * Returns one hero using ID
+             * @param {int} id heroes id
+             */
+            function _getHero(id) {
+
+                if(localStorage.getItem('heroes') !== null) {
+
+                    var heroes = JSON.parse(localStorage.getItem('heroes'));
+                    return _loopHeroes(heroes, id);
                 }
-            });
 
-            return result;
+                var defer = $q.defer();
+                $http.get(urlConfig.HEROES)
+                    .then(function(heroes) {
+                        localStorage.setItem('heroes', JSON.stringify(heroes.data));
+                        var hero = _loopHeroes(heroes.data, id);
+                        if(hero !== false) {
+                            defer.resolve(hero);
+                        } else {
+                            defer.reject('Expected Hero does not exists!');
+                        }
+
+                    }, function(err) {
+                        defer.reject(err);
+                    });
+
+                return defer.promise;
+            }
+
+            /**
+             * Check if Hero exists.
+             * If it does, it returns Hero, if not, returns false.
+             * @param {obj} heroes JSON containing all heroes
+             * @param {int} id ID of wanted hero
+             */
+            function _loopHeroes(heroes, id) {
+                var result = false;
+
+                heroes.forEach(function(hero) {
+                    if(hero.id === parseInt(id)) {
+                        result = hero;
+                    }
+                });
+
+                return result;
+            }
+
         }
-
-    });
 
 }());

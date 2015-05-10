@@ -3,7 +3,9 @@
 
     var app = angular.module('Avengulars');
 
-    app.controller('ListCtrl', function($scope, $location, Heroes) {
+    app.controller('ListCtrl', ListCtrl);
+
+    function ListCtrl($scope, $location, Heroes) {
 
         $scope.heroes = Heroes;
         $scope.query = {};
@@ -12,6 +14,6 @@
             $scope.query.order = filter;
         };
 
-    });
+   }
 
 }());

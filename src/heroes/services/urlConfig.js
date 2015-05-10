@@ -1,10 +1,8 @@
 (function() {
     'use strict';
 
-    var app = angular.module('Avengulars');
-
-    app.constant('urlConfig', {
-        'HEROES': './mocks/heroes.json'
-    });
+    angular
+        .module('Avengulars')
+        .constant('urlConfig', {'HEROES': './mocks/heroes.json'});
 
 }());

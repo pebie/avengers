@@ -1,35 +1,38 @@
 (function() {
     'use strict';
 
-    var app = angular.module('Avengulars');
+    angular
+        .module('Avengulars')
+        .directive('heroBlock', heroBlock);
 
-    app.directive('heroBlock', function() {
 
-        return {
-            templateUrl: 'src/heroes/directives/hero-block.html',
-            restrict: 'EA',
-            controller: heroBlockCtrl,
-            scope: {
-                hero: '='
-            }
+    function heroBlock() {
 
-        };
+       return {
+           templateUrl: 'src/heroes/directives/hero-block.html',
+           restrict: 'EA',
+           controller: heroBlockCtrl,
+           scope: {
+               hero: '='
+           }
 
-        function link(scope, element, attrs) {
+       };
 
-        }
+       function link(scope, element, attrs) {
 
-        function heroBlockCtrl($scope, $location) {
-            
-            /**
-             * Go to hero detail page
-             * @param {int} id Hero's unique id
-             */
-            $scope.showHero = function(id) {
-                $location.path('/hero/' + id);
-            };
+       }
 
-        }
-  });
+       function heroBlockCtrl($scope, $location) {
+
+           /**
+            * Go to hero detail page
+            * @param {int} id Hero's unique id
+            */
+           $scope.showHero = function(id) {
+               $location.path('/hero/' + id);
+           };
+
+       }
+   }
 
 }());

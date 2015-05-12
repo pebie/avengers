@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h3 class="panel-title panel-title title--inline">Details</h3>
+    </div>
+
+    <div class="panel-body panel-body">
+
+        <button class="btn-back btn btn-primary" ng-link="list">Back to list</button>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                Update status <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a ng-click="statusChange(1)">Busy</a></li>
+                <li><a ng-click="statusChange(2)">Hurt</a></li>
+                <li><a ng-click="statusChange(0)">Available</a></li>
+            </ul>
+        </div>
+        <div>
+            <span class="bloc-hero">
+                <h3>{{hero.name}}</h3>
+                <h4>{{hero.age}}</h4>
+                <p>{{hero.description}}</p>
+                <span ng-switch on="hero.status" style="font-size: 2em">
+                    <span ng-switch-when="0" class="label label-success">Available</span>
+                    <span ng-switch-when="1" class="label label-warning">Busy</span>
+                    <span ng-switch-when="2" class="label label-danger">Hurt</span>
+                </span>
+            </span>
+            <img class="thumbnail thumbnail--inline pull-right" ng-src="images/{{hero.image}}"/>
+        </div>
+
+        <div ng-show="success" class="alert alert-success"><strong>\o/ BOOYAH !</strong></div>
+        <div ng-show="failure" class="alert alert-danger"><strong>NIQUES TOI ! </strong></div>
+
+    </div>
+</div>

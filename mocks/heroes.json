@@ -2,7 +2,7 @@
   {
     "id":1,
     "name": "Captain America",
-    "description": "Sénile et grabataire",
+    "description": "The First Avenger - Avengers assemble !",
     "status": "0",
     "image": "captain-america.png",
     "age": 90
@@ -10,7 +10,7 @@
   {
     "id":2,
     "name": "Iron Man",
-    "description": "Riche et célèbre",
+    "description": "Golden Avenger - I'm bringing the part to you !",
     "status": "1",
     "image": "iron-man.png",
     "age": 35
@@ -18,7 +18,7 @@
   {
     "id":3,
     "name": "Hawkeye",
-    "description": "Rêve secrétement de Widow",
+    "description": "Golden Archer - Trying to keep up.",
     "status": "2",
     "image": "hawkeye.png",
     "age": 40
@@ -26,15 +26,15 @@
   {
     "id":4,
     "name": "Hulk",
-    "description": "Géant vert, vendeur de maïs",
+    "description": "The World Breaker - SMASH !",
     "status": "0",
     "image": "hulk.png",
     "age": 39
   },
   {
     "id":5,
-    "name": "La veuve noire",
-    "description": "Gorgeous",
+    "name": "Black Widow",
+    "description": "Oktober - Femme Fatale.",
     "status": "1",
     "image": "widow.png",
     "age": 24
@@ -42,7 +42,7 @@
   {
     "id":6,
     "name": "Thor",
-    "description": "Viking body buildé",
+    "description": "The Thunderer - Lord of Asgard.",
     "status": "2",
     "image": "thor.png",
     "age": 46

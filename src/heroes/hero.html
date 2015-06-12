@@ -1,0 +1,37 @@
+<div class="panel panel-primary">
+
+
+        <div class="panel-heading">
+            <h3 class="panel-title panel-title title--inline">Fiche détail</h3>
+        </div>
+        <button ng-click="/list" class="btn btn-primary pull-right">Back to the list</button>
+        <div class="panel-body panel-body">
+            <div>
+                <img class="thumbnail thumbnail--inline" src="images/placeholder.jpg" width="100px" height="100px"/>
+                <span class="bloc-hero">
+                    <h3>Nom</h3>
+                    <h4>Age</h4>
+                    <p>Description</p>
+                    <span class="label label-success">Disponible</span>
+                    <span class="label label-warning">Occupé</span>
+                    <span class="label label-danger">Blessé</span>
+                </span>
+
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                        Mettre à jour le status <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Occupé</a></li>
+                        <li><a href="#">Blessé</a></li>
+                        <li><a href="#">Disponible</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <button class="btn-back btn btn-primary">Retour à la liste</button>
+            <div class="alert alert-success"><strong>Bravo ! </strong></div>
+            <div class="alert alert-danger"><strong>Erreur ! </strong></div>
+        </div>
+
+    </div>

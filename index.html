@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
-<head lang="en">
+<html xmlns="http://www.w3.org/1999/html" ng-app="avengersApp" >
+<head lang="en" >
     <link rel="stylesheet" href="vendors/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="vendors/css/custom.css"/>
     <meta charset="UTF-8">
-    <title>Avengers assemble </title>
+    <title>Ma super application</title>
 </head>
 <script src="vendors/js/jquery-2.1.3.min.js"></script>
 <script src="vendors/js/bootstrap.min.js"></script>
 
-<body ng-app="myApp" ng-controller="MainCtrl">
-  <div ng-view>
-  </div>
+<body>
+
+<div ng-view></div>
+
+
 <footer class="container text-center">
     <hr/>
-    <span>Avengers assemble </span>
+    <span>Ma super application</span>
 </footer>
 </body>
 
 <script src="vendors/js/angular.min.js"></script>
 <script src="vendors/js/angular-route.min.js"></script>
 <script src="src/heroes/app.js"></script>
-<script src="src/heroes/controllers/mainCtrl.js" charset="utf-8"></script>
-<script src="src/heroes/controllers/listCtrl.js" charset="utf-8"></script>
-<script src="src/heroes/controllers/detailCtrl.js" charset="utf-8"></script>
-<script src="src/heroes/services/urlconfig.js" charset="utf-8"></script>
-<script src="src/heroes/services/heroes.js" charset="utf-8"></script>
-<script src="src/heroes/directives/blockHeroes.js" charset="utf-8"></script>
-<script src="src/heroes/directives/modifyStatus.js" charset="utf-8"></script>
+<script src="src/heroes/scripts/heroes/controllers/list.js"></script>
+<script src="src/heroes/scripts/heroes/controllers/detail.js"></script>
+<script src="src/heroes/scripts/heroes/directives/heroInfo.js"></script>
+<script src="src/heroes/scripts/heroes/services/risesOfHeroes.js"></script>
 
 </html>

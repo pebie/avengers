@@ -1,38 +1,24 @@
-/**
- * Created by Pebie on 28/04/15.
- */
- var myApp = angular.module('myApp', ['ngRoute','myAppControllers']);
+'use strict';
 
- myApp.config(['$routeProvider',
-    function($routeProvider) {
-
-        // Système de routage
+var app = angular
+    .module("avengersApp", ['ngRoute'])
+    .config(function ($routeProvider) {
         $routeProvider
-        .when('/list', {
-            templateUrl: 'src/heroes/templates/list.html',
-            controller: 'listCtrl',
-            resolve: {
-                Heroes: function(HeroFactory) {
-
-                    return HeroFactory.getHeroes();
-
+            .when('/list', {
+                templateUrl: '/src/heroes/scripts/heroes/views/list.html',
+                controller: 'ListCtrl',
+                resolve: {
+                    Heroes: function(risesOfHeroesFactory) {
+                        return risesOfHeroesFactory.getHeroes();
+                    }
                 }
-            }
-        })
-        .when('/detail/:id', {
-            templateUrl: 'src/heroes/templates/detail.html',
-            controller: 'detailCtrl',
-            resolve: {
-                  Hero: function($route, HeroFactory) {
-                      return HeroFactory.getHero($route.current.params.id);
-                  }
-              }
-        })
-        .otherwise({
-            redirectTo: '/list'
-        });
-    }
-]);
-
-
-var myAppControllers = angular.module('myAppControllers', []);
+            })
+            .when('/heroes/:id',{
+                templateUrl: '/src/heroes/scripts/heroes/views/detail.html',
+                controller:'DetailCtrl',
+                resolve: {
+                    
+                }
+            })
+            .otherwise({redirectTo: '/list'});
+    });

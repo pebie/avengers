@@ -1,79 +1,41 @@
-<!doctype html>
-<html lang="en" ng-app="avengersApp" ng-controller="RootCtrl">
-<head>
-  <meta charset="utf-8">
-  <title>{{title}}</title>
-
-      <!--styles-->
-    <link rel="stylesheet" href="src/vendor/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="src/vendor/css/custom.css"/>
-      <!--vendors-->
-    <script type="text/javascript" src="src/vendor/js/angular.min.js"></script>
-    <script type="text/javascript" src="src/vendor/js/angular-route.min.js"></script>
-    <script type="text/javascript" src="bower_components/firebase/firebase.js"></script>
-    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-
-
-    <script src="src/vendor/angular.js"></script>
-    <script src="src/vendor/angular-route.js"></script>
-
-    <script src="src/scripts/app.js"></script>
-    <script src="src/scripts/filter/capitalize.js"></script>
-    <script src="src/scripts/controller/root.js"></script>
-    <script src="src/scripts/controller/heroes.js"></script>
-    <script src="src/scripts/controller/header.js"></script>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <link rel="stylesheet" href="vendors/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="vendors/css/custom.css"/>
+    <meta charset="UTF-8">
+    <title>my Avengers</title>
 </head>
-<body>
+<script src="vendors/js/jquery-2.1.3.min.js"></script>
+<script src="vendors/js/bootstrap.min.js"></script>
 
-<header ng-controller="HeaderCtrl" class="container page-header">
-    <h1><img src="images/logo.png">vengers<br />
-    <small>Huge application!</small></h1>
+<body ng-app="myAvengers" ng-controller="RootController">
+
+<header class="container page-header">
+    <h1><img ng-src="images/logo.png"></img>  My Avengers app !
+        <small>find your hero!</small>
+    </h1>
 </header>
 
-<section ng-controller="HeroesCtrl" class="container">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title panel-title title--inline">Liste complète</h3>
-            <span class="filter">
-
-                <select ng-model="orderProp" class="pull-right">
-                    <option selected> Filtrer par:</option>
-                    <option value="id">ID</option>
-                    <option value="name">Ordre Alphabétique</option>
-                    <option value="age">Age</option>
-                    <option value="status">Status</option>
-                </select>
-            </span>
-        </div>
-        <div class="panel-body">
-            <div class="col-sm-6 col-md-4" ng-repeat="heroe in heroes | orderBy:orderProp"
-            ng-click="click(heroe.name)"
-            ng-class="{isSelected:heroe.name==selectedHero}"
-            >
-                <div ng-switch on="heroe.status" class="status pull-right">
-                    <span ng-switch-when="0" class="label label-success">Disponible</span>
-                    <span ng-switch-when="1" class="label label-warning">Occupé</span>
-                    <span ng-switch-when="2" class="label label-danger">Indisponible</span>
-                </div>
-                <a ng-href="/#/views/hero.html/:{{heroe.id}}" target="_blank"> <div class="thumbnail">
-                    <img ng-src="images/{{heroe.image}}" class="image-thumbnail">
-
-                    <div class="caption">
-                        <h3>Nom : {{heroe.name | uppercase }}</h3>
-                        <h4>Age: {{ heroe.age }} ans</h4>
-                        <p>{{heroe.description}}</p>
-                        <button class="btn btn-primary" ng-click="">Modifier</button>
-                    </div>
-                </div></a>
-
-            </div>
-        </div>
-    </div>
+<section class="container">
+    <ng-view></ng-view>
 </section>
+
 <footer class="container text-center">
     <hr/>
-    <span>Ma super application</span>
+    <span>Hulk wuz here</span>
 </footer>
-
 </body>
+
+<script src="vendors/js/angular.min.js"></script>
+<script src="vendors/js/angular-route.min.js"></script>
+
+<script src="src/heroes/app.js"></script>
+<script src="src/heroes/controllers/rootController.js" charset="utf-8"></script>
+<script src="src/heroes/controllers/heroesListController.js" charset="utf-8"></script>
+<script src="src/heroes/controllers/heroController.js" charset="utf-8"></script>
+<script src="src/heroes/services/urlConfig.js" charset="utf-8"></script>
+<script src="src/heroes/services/heroData.js" charset="utf-8"></script>
+<script src="src/heroes/directives/heroBlock.js" charset="utf-8"></script>
+
 </html>

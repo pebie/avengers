@@ -1,0 +1,22 @@
+
+<section ng-controller="HeroesCtrl" class="container">
+      <!--<p ng-controller="HeroesListCtrl"> {{ message }} </p>-->
+
+        <div class="panel-heading">
+            <h3 class="panel-title panel-title title--inline">Liste complète</h3>
+            <span class="dropdown pull-right">
+                <div class="dropdown-toggle" data-toggle="dropdown">Filtrer <span class="caret"></span></a></div>
+                <ul ng-model="orderProp" class="dropdown-menu">
+                    <li><a href="" ng-click="orderProp = 'name'"><option value="0">Trier par nom</option></a></li>
+                    <li><a href="" ng-click="orderProp = 'age'">Trier par âge</option></a></li>
+                    <li><a href="" ng-click="orderProp = 'status'">Trier par status</option></a></li>
+                </ul>
+            </span>
+        </div>
+      
+
+          <div ng-repeat="hero in heroes | orderBy:orderProp" class="ng-class-even:'even';ng-class-odd:'odd'">
+            <hero-info info="hero" status="{{hero.status}}" class="hero">
+          </div>
+
+</section>

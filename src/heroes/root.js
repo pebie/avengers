@@ -1,5 +1,5 @@
-angular.module("avengersApp").controller("RootCtrl", function ($scope) {
+angular.module("avengersApp").controller("RootCtrl", function ($scope){
 
-    $scope.title = "AvengersJS";
+  $scope.title = "Application Avengers AngularJS";
 
 });

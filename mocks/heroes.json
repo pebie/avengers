@@ -4,7 +4,7 @@
     "name": "Captain America",
     "description": "Sénile et grabataire",
     "status": "0",
-    "image": "captain-america.png",
+    "image": "images/captain-america.png",
     "age": 90
   },
   {
@@ -12,7 +12,7 @@
     "name": "Iron Man",
     "description": "Riche et célèbre",
     "status": "1",
-    "image": "iron-man.png",
+    "image": "images/iron-man.png",
     "age": 35
   },
   {
@@ -20,7 +20,7 @@
     "name": "Hawkeye",
     "description": "Rêve secrétement de Widow",
     "status": "2",
-    "image": "hawkeye.png",
+    "image": "images/hawkeye.png",
     "age": 40
   },
   {
@@ -28,7 +28,7 @@
     "name": "Hulk",
     "description": "Géant vert, vendeur de maïs",
     "status": "0",
-    "image": "hulk.png",
+    "image": "images/hulk.png",
     "age": 39
   },
   {
@@ -36,7 +36,7 @@
     "name": "La veuve noire",
     "description": "Gorgeous",
     "status": "1",
-    "image": "widow.png",
+    "image": "images/widow.png",
     "age": 24
   },
   {
@@ -44,7 +44,7 @@
     "name": "Thor",
     "description": "Viking body buildé",
     "status": "2",
-    "image": "thor.png",
+    "image": "images/thor.png",
     "age": 46
   }
 ]

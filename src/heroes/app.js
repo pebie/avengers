@@ -1,31 +1,38 @@
-(function() {
-    'use strict';
+/**
+ * Created by Pebie on 28/04/15.
+ */
+ var myApp = angular.module('myApp', ['ngRoute','myAppControllers']);
 
-    angular
-        .module('myAvengers', ['ngRoute'])
-        .config(function ($routeProvider) {
+ myApp.config(['$routeProvider',
+    function($routeProvider) {
 
+        // Système de routage
         $routeProvider
-            .when('/list', {
-                templateUrl: 'src/heroes/views/heroesList.html',
-                controller: 'HeroesListController',
-                resolve: {
-                    Heroes: function(HeroData) {
-                        return HeroData.getHeroes();
-                    }
-                }
-            })
-            .when('/hero/:id', {
-                templateUrl: 'src/heroes/views/hero.html',
-                controller: 'HeroController',
-                resolve: {
-                    Hero: function($route, HeroData) {
-                        return HeroData.getHero($route.current.params.id);
-                    }
-                }
-            })
-            .otherwise('/list');
+        .when('/list', {
+            templateUrl: 'src/heroes/templates/list.html',
+            controller: 'listCtrl',
+            resolve: {
+                Heroes: function(HeroFactory) {
 
-    });
+                    return HeroFactory.getHeroes();
 
-}());
+                }
+            }
+        })
+        .when('/detail/:id', {
+            templateUrl: 'src/heroes/templates/detail.html',
+            controller: 'detailCtrl',
+            resolve: {
+                  Hero: function($route, HeroFactory) {
+                      return HeroFactory.getHero($route.current.params.id);
+                  }
+              }
+        })
+        .otherwise({
+            redirectTo: '/list'
+        });
+    }
+]);
+
+
+var myAppControllers = angular.module('myAppControllers', []);

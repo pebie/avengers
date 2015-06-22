@@ -1,0 +1,37 @@
+<div class="panel panel-primary">
+
+
+    <div class="panel-heading">
+        <h3 class="panel-title panel-title title--inline">Description File</h3>
+    </div>
+
+    <div class="panel-body panel-body">
+        <div>
+            <img class="thumbnail thumbnail--inline" ng-src="images/{{hero.image}}" width="100px" height="100px"/>
+            <span class="bloc-hero" ng-switch on="hero.status">
+                <h3>{{hero.name}}</h3>
+                <h4>{{hero.age}}</h4>
+                <p>{{hero.description}}</p>
+                <span ng-switch-when="0" class="label label-success">Prêt au combat</span>
+                <span ng-switch-when="1" class="label label-warning">Pas prêt</span>
+                <span ng-switch-when="2" class="label label-danger">K.O</span>
+            </span>
+
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                    Update Status <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" modify-status>
+                    <li ng-click="updateStatus(0)" ng-class="{disabled: hero.status == 0}"><a>Prêt au combat</a></li>
+                    <li ng-click="updateStatus(1)" ng-class="{disabled: hero.status == 1}"><a>Pas prêt</a></li>
+                    <li ng-click="updateStatus(2)" ng-class="{disabled: hero.status == 2}"><a>K.O</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <button class="btn-back btn btn-primary" ng-click="back()">Back to list</button>
+        <div ng-show="alert == 'success'" class="alert alert-success"><strong>Right On!</strong></div>
+        <div ng-show="alert == 'error'" class="alert alert-danger"><strong>You F*cked Up!</strong></div>
+    </div>
+
+</div>

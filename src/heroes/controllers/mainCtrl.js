@@ -1,10 +1,13 @@
+
 (function() {
     'use strict';
 
     var app = angular.module('myApp');
 
-    app.constant('urlConfig', {
-        'HEROES': './mocks/heroes.json'
+    app.controller('MainCtrl', function($scope, $location) {
+
+
+
     });
 
 }());

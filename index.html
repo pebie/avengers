@@ -4,38 +4,29 @@
     <link rel="stylesheet" href="vendors/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="vendors/css/custom.css"/>
     <meta charset="UTF-8">
-    <title>my Avengers</title>
+    <title>Avengers assemble </title>
 </head>
 <script src="vendors/js/jquery-2.1.3.min.js"></script>
 <script src="vendors/js/bootstrap.min.js"></script>
 
-<body ng-app="myAvengers" ng-controller="RootController">
-
-<header class="container page-header">
-    <h1><img ng-src="images/logo.png"></img>  My Avengers app !
-        <small>find your hero!</small>
-    </h1>
-</header>
-
-<section class="container">
-    <ng-view></ng-view>
-</section>
-
+<body ng-app="myApp" ng-controller="MainCtrl">
+  <div ng-view>
+  </div>
 <footer class="container text-center">
     <hr/>
-    <span>Hulk wuz here</span>
+    <span>Avengers assemble </span>
 </footer>
 </body>
 
 <script src="vendors/js/angular.min.js"></script>
 <script src="vendors/js/angular-route.min.js"></script>
-
 <script src="src/heroes/app.js"></script>
-<script src="src/heroes/controllers/rootController.js" charset="utf-8"></script>
-<script src="src/heroes/controllers/heroesListController.js" charset="utf-8"></script>
-<script src="src/heroes/controllers/heroController.js" charset="utf-8"></script>
-<script src="src/heroes/services/urlConfig.js" charset="utf-8"></script>
-<script src="src/heroes/services/heroData.js" charset="utf-8"></script>
-<script src="src/heroes/directives/heroBlock.js" charset="utf-8"></script>
+<script src="src/heroes/controllers/mainCtrl.js" charset="utf-8"></script>
+<script src="src/heroes/controllers/listCtrl.js" charset="utf-8"></script>
+<script src="src/heroes/controllers/detailCtrl.js" charset="utf-8"></script>
+<script src="src/heroes/services/urlconfig.js" charset="utf-8"></script>
+<script src="src/heroes/services/heroes.js" charset="utf-8"></script>
+<script src="src/heroes/directives/blockHeroes.js" charset="utf-8"></script>
+<script src="src/heroes/directives/modifyStatus.js" charset="utf-8"></script>
 
 </html>

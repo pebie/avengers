@@ -1,16 +1,29 @@
-'use strict';
+/**
+ * Created by Pebie on 28/04/15.
+ */
+(function() {
+    'use strict';
+    angular.module('avengersApp', ['ngRoute']).config(function ($routeProvider) {
 
-var app = angular
-    .module("avengersApp", ['ngRoute'])
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider
-            .when('/list', {
-                templateUrl: 'src/heroes/list.html',
-                controller: 'HeroesCtrl'
-            })
-            .when('/detail/:id',{
-                controller:'HeroCtrl',
-                templateUrl: 'src/avengers/hero.html'
-            })
-            .otherwise('/list');
-    }]);
+            $routeProvider
+                .when('/heroes', {
+                    templateUrl: 'src/heroes/views/heroes.html',
+                    controller: 'HeroesCtrl',
+                    resolve: {
+                        Heroes: function(HeroFactory) {
+                            return HeroFactory.getHeroes();
+                        }
+                    }
+                })
+                .when('/hero/:id', {
+                    templateUrl: 'src/heroes/views/hero.html',
+                    controller: 'HeroCtrl',
+                    resolve: {
+                        Hero: function($route, HeroFactory) {
+                            return HeroFactory.getHero($route.current.params.id);
+                        }
+                    }
+                })
+                .otherwise('/heroes');
+        });
+}());

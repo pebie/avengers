@@ -3,9 +3,9 @@
 <head lang="en">
     <link rel="stylesheet" href="vendors/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="vendors/css/custom.css"/>
-    <link rel="stylesheet" href="src/styles/style.css"/>
+    <link rel="icon" href="images/logo.png">
     <meta charset="UTF-8">
-    <title>Ma super application</title>
+    <title>vengers App !</title>
 </head>
 <script src="vendors/js/jquery-2.1.3.min.js"></script>
 <script src="vendors/js/bootstrap.min.js"></script>
@@ -13,27 +13,33 @@
 <body ng-app="avengersApp">
 
 <header class="container page-header">
-    <h1>Titre
-        <small>application</small>
-    </h1>
+     <h1><img src="images/logo.png"/>vengers App !</h1>
+    <h3>Get ready for the Awesomeness.</h3>
 </header>
 
-<section class="container" ng-view="">
+<section class="container">
+    <ng-view></ng-view>
 </section>
 
 <footer class="container text-center">
     <hr/>
-    <span>Ma super application</span>
+    <span>Powered by ML - 2015</span>
 </footer>
 </body>
 
 <script src="vendors/js/angular.min.js"></script>
 <script src="vendors/js/angular-route.min.js"></script>
+<!-- <script src="scripts/core/filters/capitalize.js"></script> -->
+
 <script src="src/heroes/app.js"></script>
-<script src="src/heroes/root.js"></script>
-<script src="src/core/services/urlConfig.js"></script>
-<script src="src/heroes/controllers/heroes.js"></script>
-<script src="src/heroes/controllers/hero.js"></script>
-<script src="src/heroes/directives/hero.js"></script>
+
+<script src="src/heroes/controllers/heroCtrl.js"></script>
+<script src="src/heroes/controllers/heroesCtrl.js"></script>
+
+<script src="src/heroes/directives/heroBlock.js"></script>
+<script src="src/heroes/directives/changeStatus.js"></script>
+
+<script src="src/heroes/services/hero.js"></script>
+<script src="src/heroes/services/urlConfig.js"></script>
 
 </html>

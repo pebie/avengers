@@ -1,3 +1,7 @@
+/**
+ * Created by Pebie on 28/04/15.
+ */
+//start here
 'use strict';
 
 var app = angular
@@ -5,20 +9,14 @@ var app = angular
     .config(function ($routeProvider) {
         $routeProvider
             .when('/list', {
-                templateUrl: '/src/heroes/scripts/heroes/views/list.html',
-                controller: 'ListCtrl',
-                resolve: {
-                    Heroes: function(risesOfHeroesFactory) {
-                        return risesOfHeroesFactory.getHeroes();
-                    }
-                }
+                templateUrl: 'src/heroes/views/list.html',
+                controller: 'ListController'
             })
-            .when('/heroes/:id',{
-                templateUrl: '/src/heroes/scripts/heroes/views/detail.html',
-                controller:'DetailCtrl',
-                resolve: {
-                    
-                }
+            .when('/detail/:id',{
+                controller:'DetailController',
+                templateUrl: 'src/heroes/views/detail.html'
             })
-            .otherwise({redirectTo: '/list'});
+            .otherwise('/list');
     });
+
+

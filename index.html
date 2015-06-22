@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html" ng-app="avengersApp" >
-<head lang="en" >
+<html xmlns="http://www.w3.org/1999/html"  ng-app="avengersApp" >
+<head lang="en">
     <link rel="stylesheet" href="vendors/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="vendors/css/custom.css"/>
+    <link rel="stylesheet" href="src/styles/app.css"/>
     <meta charset="UTF-8">
     <title>Ma super application</title>
 </head>
@@ -11,8 +12,13 @@
 
 <body>
 
-<div ng-view></div>
+<header class="container page-header">
+    <h1>Titre
+        <small>application</small>
+    </h1>
+</header>
 
+<div ng-view></div>
 
 <footer class="container text-center">
     <hr/>
@@ -22,10 +28,11 @@
 
 <script src="vendors/js/angular.min.js"></script>
 <script src="vendors/js/angular-route.min.js"></script>
-<script src="src/heroes/app.js"></script>
-<script src="src/heroes/scripts/heroes/controllers/list.js"></script>
-<script src="src/heroes/scripts/heroes/controllers/detail.js"></script>
-<script src="src/heroes/scripts/heroes/directives/heroInfo.js"></script>
-<script src="src/heroes/scripts/heroes/services/risesOfHeroes.js"></script>
 
+<script src="src/heroes/app.js"></script>
+<script src="src/heroes/controllers/detail.js"></script>
+<script src="src/heroes/controllers/list.js"></script>
+
+<script src="src/core/services/urlConfig.js"></script>
+<script src="src/heroes/services/heroesService.js"></script>
 </html>
